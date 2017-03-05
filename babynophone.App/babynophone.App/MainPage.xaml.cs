@@ -1,4 +1,6 @@
-﻿using System;
+﻿using babynophone.App.Resources;
+using babynophone.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +11,12 @@ namespace babynophone.App
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainPageViewModel vm)
         {
             InitializeComponent();
+
+            string chooseLabelText = Resource.LabelChooseLabel;
+
         }
     }
 }

@@ -4,8 +4,4 @@
              xmlns:local="clr-namespace:babynophone.App"
              x:Class="babynophone.App.MainPage">
 
-	<Label Text="Welcome to BabyNoPhone!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
 </ContentPage>

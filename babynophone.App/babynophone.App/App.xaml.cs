@@ -1,4 +1,7 @@
-﻿using System;
+﻿using babynophone.App.ViewModels;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +15,19 @@ namespace babynophone.App
         public App()
         {
             InitializeComponent();
-
-            MainPage = new babynophone.App.MainPage();
+            InitializeIOC();
+            MainPage = SimpleIoc.Default.GetInstance<MainPage>();
         }
+        
+        private void InitializeIOC()
+        {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            
+            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<MainPageViewModel>();
+
+            SimpleIoc.Default.Register<MainPage>();
+        }       
 
         protected override void OnStart()
         {
