@@ -7,16 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace babynophone.App
+namespace babynophone.App.Views
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(MainPageViewModel vm)
+        public MainPage()
         {
             InitializeComponent();
 
             string chooseLabelText = Resource.LabelChooseLabel;
 
         }
+
     }
 }

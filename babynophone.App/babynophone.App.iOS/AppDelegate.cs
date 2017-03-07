@@ -4,6 +4,9 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Prism;
+using Prism.Unity;
+using Microsoft.Practices.Unity;
 
 namespace babynophone.App.iOS
 {
@@ -23,9 +26,18 @@ namespace babynophone.App.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App.Application(new IOSInitializer()));
 
             return base.FinishedLaunching(app, options);
         }
     }
+
+    public class IOSInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+
+        }
+    }
+
 }

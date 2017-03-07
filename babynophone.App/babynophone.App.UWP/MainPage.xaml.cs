@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using Prism;
+using Prism.Unity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,7 +24,15 @@ namespace babynophone.App.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new babynophone.App.App());
+            LoadApplication(new babynophone.App.Application(new UwpInitializer()));
+        }
+    }
+
+    public class UwpInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+
         }
     }
 }
