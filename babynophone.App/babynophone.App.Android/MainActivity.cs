@@ -9,10 +9,12 @@ using Android.OS;
 using Prism;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using babynophone.App.Common;
+using SQLite.Net.Platform.XamarinAndroid;
 
 namespace babynophone.App.Droid
 {
-    [Activity(Label = "babynophone.App", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "babynophone.App", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, AlwaysRetainTaskState = true, LaunchMode = LaunchMode.SingleInstance)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -23,15 +25,33 @@ namespace babynophone.App.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App.Application(new AndroidInitializer()));
+            LoadApplication(new App.Application(new AndroidInitializer(this)));
         }
     }
 
     public class AndroidInitializer : IPlatformInitializer
     {
+        public AndroidInitializer(MainActivity mainActivity)
+        {
+            m_MainActivity = mainActivity;
+        }
+
+        private MainActivity m_MainActivity;
+
         public void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterInstance<IInitializeSettings>(new InitializeSettings(
+                System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "BabyNoPhone.Settings.db3"), 
+                new SQLitePlatformAndroid()), 
+                new ContainerControlledLifetimeManager());
 
+            container.RegisterType<ICreateTimer, MyTimerCreator>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IAudioRecorder, AudioRecorder>(new ContainerControlledLifetimeManager());
+            container.RegisterInstance<ITurnOnOffScreen>(new TurnOnOffScreen(m_MainActivity.Window), new ContainerControlledLifetimeManager());
+
+            // TODO: container.RegisterType<ICallSkype, CallSkype>(new ContainerControlledLifetimeManager(),new InjectionConstructor( );
+
+            m_MainActivity = null;
         }
     }
 }
