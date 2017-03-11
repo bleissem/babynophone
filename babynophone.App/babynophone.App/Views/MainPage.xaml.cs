@@ -15,7 +15,7 @@ namespace babynophone.App.Views
         {
             InitializeComponent();
 
-            string chooseLabelText = Resource.LabelChooseLabel;
+            string chooseLabelText = Resource.PleaseChooseLabel;
 
         }
 

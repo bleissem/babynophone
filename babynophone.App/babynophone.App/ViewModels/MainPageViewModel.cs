@@ -10,22 +10,40 @@ namespace babynophone.App.ViewModels
 {
     public class MainPageViewModel: BindableBase, INavigationAware
     {
-        public MainPageViewModel(MainViewModel mvm)
+        public MainPageViewModel()
         {
-            this.Title = "Hello Title";
+            InitializeText();
         }
 
-        private string m_Title;
-        public string Title
+        private void InitializeText()
+        {
+            this.PleaseChooseLabel = Resources.Resource.PleaseChooseLabel;
+            this.ChooseContactButton = Resources.Resource.ChooseContactButton;
+        }
+
+        private string m_PleaseChooseLabel;
+        public string PleaseChooseLabel
         {
             get
             {
-                return m_Title;
+                return m_PleaseChooseLabel;
             }
             set
             {
-                m_Title = value;
-                base.OnPropertyChanged(() => Title);
+                SetProperty(ref m_PleaseChooseLabel, value);
+            }
+        }
+
+        private string m_ChooseContactButton;
+        public string ChooseContactButton
+        {
+            get
+            {
+                return m_ChooseContactButton;
+            }
+            set
+            {
+                base.SetProperty(ref m_ChooseContactButton, value);
             }
         }
 

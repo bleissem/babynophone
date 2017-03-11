@@ -6,6 +6,9 @@
              x:Class="babynophone.App.Views.MainPage"
              Title="MainPage">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="{Binding Title}" />
+        <Label Text="{Binding PleaseChooseLabel}" x:Name="PleaseChooseLabel" />
+        <Button Text="{Binding ChooseContactButton}" x:Name="ChooseContactButton" />
+        
+
     </StackLayout>
 </ContentPage>
