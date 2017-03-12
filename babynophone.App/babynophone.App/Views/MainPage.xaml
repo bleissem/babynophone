@@ -5,10 +5,14 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="babynophone.App.Views.MainPage"
              Title="MainPage">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
         <Label Text="{Binding PleaseChooseLabel}" x:Name="PleaseChooseLabel" />
-        <Button Text="{Binding ChooseContactButton}" x:Name="ChooseContactButton" />
-        
-
+        <Button Text="{Binding ChooseContactButton}" Command="{Binding ChooseContactCommand}" x:Name="ChooseContactButton" />
+        <Label Text="{Binding YouAreUsingLabel}" x:Name="YouAreUsingLabel" />
+        <Label Text="{Binding YouAreUsingText}" x:Name="YouAreUsingText" />
+        <Button Text="{Binding ChooseNoiseLevelButton}" x:Name="ChooseNoiseLevelButton" />
+        <Label Text="{Binding ChooseNoiseLevelLabel}" x:Name="ChooseNoiseLevelLabel" />
+        <Label Text="{Binding CurrentNoiseLevel}" x:Name="CurrentNoiseLevel" />
+        <Button Text="{Binding StartStopButton}" x:Name="StartStopButton" />
     </StackLayout>
 </ContentPage>

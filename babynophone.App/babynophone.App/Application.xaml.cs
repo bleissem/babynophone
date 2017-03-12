@@ -25,7 +25,9 @@ namespace babynophone.App
             UnityContainer container = base.Container as UnityContainer;
             container.RegisterType<ISettings, Settings>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
+
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<ChooseSkypePage>();
         }
 
         protected override void OnInitialized()

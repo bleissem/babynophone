@@ -1,25 +1,34 @@
-﻿using Prism.Mvvm;
+﻿using babynophone.App.Views;
+using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace babynophone.App.ViewModels
 {
     public class MainPageViewModel: BindableBase, INavigationAware
     {
-        public MainPageViewModel()
+        public MainPageViewModel(INavigationService navigationService)
         {
             InitializeText();
+            m_NavigationService = navigationService;
+            ChooseContactCommand = new DelegateCommand(DoChooseContact);
         }
 
         private void InitializeText()
         {
             this.PleaseChooseLabel = Resources.Resource.PleaseChooseLabel;
             this.ChooseContactButton = Resources.Resource.ChooseContactButton;
+            this.YouAreUsingLabel = Resources.Resource.YouAreUsingLabel;
+            this.YouAreUsingText = string.Empty;
         }
+
+        private INavigationService m_NavigationService;
 
         private string m_PleaseChooseLabel;
         public string PleaseChooseLabel
@@ -43,8 +52,97 @@ namespace babynophone.App.ViewModels
             }
             set
             {
-                base.SetProperty(ref m_ChooseContactButton, value);
+                SetProperty(ref m_ChooseContactButton, value);
             }
+        }
+
+        private string m_YouAreUsingLabel;
+        public string YouAreUsingLabel
+        {
+            get
+            {
+                return m_YouAreUsingLabel;
+            }
+            set
+            {
+                SetProperty(ref m_YouAreUsingLabel, value);
+            }
+        }
+
+        private string m_YouAreUsingText;
+        public string YouAreUsingText
+        {
+            get
+            {
+                return m_YouAreUsingText;
+            }
+            set
+            {
+                SetProperty(ref m_YouAreUsingText, value);
+            }
+        }
+
+        private string m_ChooseNoiseLevelButton;
+        public string ChooseNoiseLevelButton
+        {
+            get
+            {
+                return m_ChooseNoiseLevelButton;
+            }
+            set
+            {
+                SetProperty(ref m_ChooseNoiseLevelButton, value);
+            }
+        }
+
+        private string m_ChooseNoiseLevelLabel;
+        public string ChooseNoiseLevelLabel
+        {
+            get
+            {
+                return m_ChooseNoiseLevelLabel;
+            }
+            set
+            {
+                SetProperty(ref m_ChooseNoiseLevelLabel, value);
+            }
+        }
+
+        private string m_CurrentNoiseLevel;
+        public string CurrentNoiseLevel
+        {
+            get
+            {
+                return m_CurrentNoiseLevel;
+            }
+            set
+            {
+                SetProperty(ref m_CurrentNoiseLevel, value);
+            }
+        }
+
+        private string m_StartStopButton;
+        public string StartStopButton
+        {
+            get
+            {
+                return m_StartStopButton;
+            }
+            set
+            {
+                SetProperty(ref m_StartStopButton, value);
+            }
+        }
+
+
+        public ICommand ChooseContactCommand
+        {
+            get;
+        }
+
+        private void DoChooseContact()
+        {
+            m_NavigationService.NavigateAsync(nameof(ChooseSkypePage));
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

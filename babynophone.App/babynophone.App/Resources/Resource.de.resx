@@ -120,7 +120,19 @@
   <data name="ChooseContactButton" xml:space="preserve">
     <value>die Kommunikation</value>
   </data>
+  <data name="ChooseNoiseLevelButton" xml:space="preserve">
+    <value>Geräuschpegel</value>
+  </data>
   <data name="PleaseChooseLabel" xml:space="preserve">
     <value>Bitte wählen Sie:</value>
+  </data>
+  <data name="StartStopButtonStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StartStopButtonStop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="YouAreUsingLabel" xml:space="preserve">
+    <value>Sie verwenden:</value>
   </data>
 </root>
