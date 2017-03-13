@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace babynophone.App.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChooseSkypePage : ContentPage
+    public partial class ChooseSkypeUserPage : ContentPage
     {
-        public ChooseSkypePage()
+        public ChooseSkypeUserPage()
         {
             InitializeComponent();
         }

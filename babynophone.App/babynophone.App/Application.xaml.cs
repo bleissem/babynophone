@@ -27,7 +27,7 @@ namespace babynophone.App
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
 
             Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<ChooseSkypePage>();
+            Container.RegisterTypeForNavigation<ChooseSkypeUserPage>();
         }
 
         protected override void OnInitialized()

@@ -80,6 +80,24 @@ namespace babynophone.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to please enter the skype user you want to call to.
+        /// </summary>
+        internal static string ChooseSkypeUserLabel {
+            get {
+                return ResourceManager.GetString("ChooseSkypeUserLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string ChooseSkypeUserOKButton {
+            get {
+                return ResourceManager.GetString("ChooseSkypeUserOKButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to please choose.
         /// </summary>
         internal static string PleaseChooseLabel {

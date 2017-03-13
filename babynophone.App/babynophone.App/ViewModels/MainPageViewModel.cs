@@ -142,7 +142,7 @@ namespace babynophone.App.ViewModels
 
         private void DoChooseContact()
         {
-            m_NavigationService.NavigateAsync(nameof(ChooseSkypePage));
+            m_NavigationService.NavigateAsync(nameof(ChooseSkypeUserPage));
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace babynophone.App.Common
 {
-    public interface ISettings
+    public interface ISettingsSkypeUser
     {
-        ISettingsSkypeUser SkypeUser { get; }
+        string SkypeUserName { get; set; }
     }
 }

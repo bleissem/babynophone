@@ -123,6 +123,12 @@
   <data name="ChooseNoiseLevelButton" xml:space="preserve">
     <value>noise level</value>
   </data>
+  <data name="ChooseSkypeUserLabel" xml:space="preserve">
+    <value>please enter the skype user you want to call to</value>
+  </data>
+  <data name="ChooseSkypeUserOKButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="PleaseChooseLabel" xml:space="preserve">
     <value>please choose</value>
   </data>

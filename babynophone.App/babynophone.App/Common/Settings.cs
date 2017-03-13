@@ -11,9 +11,18 @@ namespace babynophone.App.Common
         public Settings(IInitializeSettings initialize)
         {
             m_InitializeSettings = initialize;
+            m_SkypeUser = new SkypeUserSetting(initialize);
         }
 
         private IInitializeSettings m_InitializeSettings;
 
+        private SkypeUserSetting m_SkypeUser;
+        public ISettingsSkypeUser SkypeUser
+        {
+            get
+            {
+                return m_SkypeUser;
+            }
+        }
     }
 }

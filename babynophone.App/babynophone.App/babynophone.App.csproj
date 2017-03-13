@@ -46,14 +46,16 @@
     <Compile Include="Common\IInitializeSettings.cs" />
     <Compile Include="Common\InitializeSettings.cs" />
     <Compile Include="Common\ISettings.cs" />
+    <Compile Include="Common\ISettingsSkypeUser.cs" />
     <Compile Include="Common\ITimer.cs" />
     <Compile Include="Common\ITurnOnOffScreen.cs" />
     <Compile Include="Common\MasterTable.cs" />
     <Compile Include="Common\Settings.cs" />
-    <Compile Include="Common\SkypeTable.cs" />
-    <Compile Include="ViewModels\ChooseSkypePageViewModel.cs" />
-    <Compile Include="Views\ChooseSkypePage.xaml.cs">
-      <DependentUpon>ChooseSkypePage.xaml</DependentUpon>
+    <Compile Include="Common\SkypeUserSetting.cs" />
+    <Compile Include="Common\SkypeUserSettingTable.cs" />
+    <Compile Include="ViewModels\ChooseSkypeUserPageViewModel.cs" />
+    <Compile Include="Views\ChooseSkypeUserPage.xaml.cs">
+      <DependentUpon>ChooseSkypeUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -135,7 +137,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ChooseSkypePage.xaml">
+    <EmbeddedResource Include="Views\ChooseSkypeUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
