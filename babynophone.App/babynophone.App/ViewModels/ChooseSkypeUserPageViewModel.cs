@@ -13,10 +13,11 @@ namespace babynophone.App.ViewModels
 {
     public class ChooseSkypeUserPageViewModel: BindableBase, INavigationAware
     {
-        public ChooseSkypeUserPageViewModel(ISettings settings, INavigationService navigationService)
+        public ChooseSkypeUserPageViewModel(ISettings settings, INavigationService navigationService, ISkypeViewModel skypeViewModel)
         {
             m_Settings = settings;
             m_NavigationService = navigationService;
+            m_SkypeViewModel = skypeViewModel;
             ChooseSkypeUserOKButtonCommand = new DelegateCommand(DoChooseSkypeUserOK, CanChooseSkypeUserOK).ObservesProperty(()=>SkypeUser);
             
             InitializeText();
@@ -27,11 +28,12 @@ namespace babynophone.App.ViewModels
             this.ChooseSkypeUserLabel = Resources.Resource.ChooseSkypeUserLabel;
             this.m_ChooseSkypeUserOKButton = Resources.Resource.ChooseSkypeUserOKButton;
             this.SkypeUser = m_Settings.SkypeUser.SkypeUserName;
-
+            this.SkypeIsInstalledText = m_SkypeViewModel.IsSkypeInstalled ? Resources.Resource.SkypeIsNotInstalledText1 : string.Empty;
         }
 
         private ISettings m_Settings;
         private INavigationService m_NavigationService;
+        private ISkypeViewModel m_SkypeViewModel;
 
         private string m_ChooseSkypeUserLabel;
         public string ChooseSkypeUserLabel
@@ -86,6 +88,19 @@ namespace babynophone.App.ViewModels
         {
             get;
             private set;
+        }
+
+        private string m_SkypeIsInstalledText;
+        public string SkypeIsInstalledText
+        {
+            get
+            {
+                return m_SkypeIsInstalledText;
+            }
+            set
+            {
+                SetProperty(ref m_SkypeIsInstalledText, value);
+            }
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

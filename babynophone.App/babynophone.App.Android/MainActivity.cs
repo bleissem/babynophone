@@ -11,11 +11,12 @@ using Prism.Unity;
 using Microsoft.Practices.Unity;
 using babynophone.App.Common;
 using SQLite.Net.Platform.XamarinAndroid;
+using babynophone.App.ViewModels;
 
 namespace babynophone.App.Droid
 {
     [Activity(Label = "babynophone.App", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, AlwaysRetainTaskState = true, LaunchMode = LaunchMode.SingleInstance)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IProvidePackageManager
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -49,8 +50,14 @@ namespace babynophone.App.Droid
             container.RegisterType<IAudioRecorder, AudioRecorder>(new ContainerControlledLifetimeManager());
             container.RegisterInstance<ITurnOnOffScreen>(new TurnOnOffScreen(m_MainActivity.Window), new ContainerControlledLifetimeManager());
 
-            // TODO: container.RegisterType<ICallSkype, CallSkype>(new ContainerControlledLifetimeManager(),new InjectionConstructor( );
+            container.RegisterInstance<IProvidePackageManager>(m_MainActivity);
 
+
+            container.RegisterType<SkypeViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ISkypeViewModel, SkypeViewModel>();
+
+            container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICall, MainViewModel>();
             m_MainActivity = null;
         }
     }

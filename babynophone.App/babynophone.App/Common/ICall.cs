@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace babynophone.App.Common
 {
-    public interface ISettings
+    public interface ICall : IDisposable
     {
-        IMasterSetting MasterSetting { get; }
-
-        ISettingsSkypeUser SkypeUser { get; }        
+        bool CanCall();
+        void Call();
     }
 }

@@ -7,5 +7,6 @@
         <Label Text="{Binding ChooseSkypeUserLabel}" />
         <Entry Text="{Binding SkypeUser}" />
         <Button Text="{Binding ChooseSkypeUserOKButton}" Command="{Binding ChooseSkypeUserOKButtonCommand}" />
+        <Label Text="{Binding SkypeIsInstalledText}" />
     </StackLayout>
 </ContentPage>

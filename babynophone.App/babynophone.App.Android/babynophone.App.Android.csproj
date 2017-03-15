@@ -152,8 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioRecorder.cs" />
-    <Compile Include="CallSkype.cs" />
     <Compile Include="IntentFactory.cs" />
+    <Compile Include="IProvidePackageManager.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyTimer.cs">
       <SubType>Component</SubType>
@@ -161,6 +161,7 @@
     <Compile Include="MyTimerCreator.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SkypeViewModel.cs" />
     <Compile Include="TurnOnOffScreen.cs" />
   </ItemGroup>
   <ItemGroup>

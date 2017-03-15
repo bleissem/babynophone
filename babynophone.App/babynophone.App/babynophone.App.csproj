@@ -38,17 +38,21 @@
     <Compile Include="Application.xaml.cs">
       <DependentUpon>Application.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\DBSettingBase.cs" />
     <Compile Include="Common\ExecuteAction.cs" />
     <Compile Include="Common\IAudioRecorder.cs" />
-    <Compile Include="Common\ICallSkype.cs" />
+    <Compile Include="Common\ICall.cs" />
     <Compile Include="Common\ICreateTimer.cs" />
     <Compile Include="Common\IExecuteAction.cs" />
     <Compile Include="Common\IInitializeSettings.cs" />
+    <Compile Include="Common\IMasterSetting.cs" />
     <Compile Include="Common\InitializeSettings.cs" />
     <Compile Include="Common\ISettings.cs" />
     <Compile Include="Common\ISettingsSkypeUser.cs" />
+    <Compile Include="Common\ISkypeViewModel.cs" />
     <Compile Include="Common\ITimer.cs" />
     <Compile Include="Common\ITurnOnOffScreen.cs" />
+    <Compile Include="Common\MasterSetting.cs" />
     <Compile Include="Common\MasterTable.cs" />
     <Compile Include="Common\Settings.cs" />
     <Compile Include="Common\SkypeUserSetting.cs" />

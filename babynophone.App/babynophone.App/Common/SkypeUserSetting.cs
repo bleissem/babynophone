@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace babynophone.App.Common
 {
-    public class SkypeUserSetting : ISettingsSkypeUser
+    public class SkypeUserSetting : DBSettingBase<SkypeUserSettingTable>, ISettingsSkypeUser
     {
-        public SkypeUserSetting(IInitializeSettings initialize)
+        public SkypeUserSetting(IInitializeSettings initialize):base(initialize)
         {
-            m_Initialize = initialize;
-            Load();
         }
 
-        private IInitializeSettings m_Initialize;
 
         private string m_SkypeUserName;
         public string SkypeUserName
         {
             get
             {
+                base.Load();
                 return m_SkypeUserName;
             }
             set
@@ -31,30 +29,38 @@ namespace babynophone.App.Common
             }
         }
 
-        private void Load()
+        private bool m_IsSkypeVideoEnabled;
+        public bool IsSkypeVideoEnabled
         {
-
-            using (var db = new SQLite.Net.SQLiteConnection(m_Initialize.Platform, m_Initialize.DBPath))
+            get
             {
-
-                db.CreateTable<SkypeUserSettingTable>();
-                if (0 == db.Table<SkypeUserSettingTable>().Count())
-                {
-                    var newSettings = new SkypeUserSettingTable();
-                    newSettings.SkypeUserName = string.Empty;
-
-                    db.Insert(newSettings);
-                }
-
-                SkypeUserSettingTable table = db.Table<SkypeUserSettingTable>().First();
-
-                SkypeUserName = table.SkypeUserName;
+                Load();
+                return m_IsSkypeVideoEnabled;
+            }
+            set
+            {
+                if (m_IsSkypeVideoEnabled == value) return;
+                m_IsSkypeVideoEnabled = value;
+                Save();
             }
         }
 
-        private void Save()
+        protected override void InitializeTable(SkypeUserSettingTable table)
         {
+            table.IsSkypeVideoEnabled = false;
+            table.SkypeUserName = string.Empty;
+        }
 
+        protected override void Load(SkypeUserSettingTable table)
+        {
+            this.SkypeUserName = table.SkypeUserName;
+
+        }
+
+        protected override void Save(SkypeUserSettingTable table)
+        {
+            table.SkypeUserName = this.SkypeUserName;
+            table.IsSkypeVideoEnabled = this.IsSkypeVideoEnabled;
         }
     }
 }

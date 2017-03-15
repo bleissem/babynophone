@@ -107,6 +107,15 @@ namespace babynophone.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skype is not installed.
+        /// </summary>
+        internal static string SkypeIsNotInstalledText1 {
+            get {
+                return ResourceManager.GetString("SkypeIsNotInstalledText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to start.
         /// </summary>
         internal static string StartStopButtonStart {

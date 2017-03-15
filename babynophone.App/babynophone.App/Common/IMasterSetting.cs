@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace babynophone.App.Common
 {
-    public interface ICallSkype : IDisposable
+    public interface IMasterSetting
     {
-        bool CanDial();
-        void Dial();
+
+        Settings.CallTypeEnum CallType { get; }
+
     }
 }

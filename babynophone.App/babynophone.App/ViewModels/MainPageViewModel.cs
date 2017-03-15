@@ -1,4 +1,5 @@
-﻿using babynophone.App.Views;
+﻿using babynophone.App.Common;
+using babynophone.App.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -13,11 +14,15 @@ namespace babynophone.App.ViewModels
 {
     public class MainPageViewModel: BindableBase, INavigationAware
     {
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService, ICall call)
         {
-            InitializeText();
             m_NavigationService = navigationService;
+            m_Call = call;
+
+            InitializeText();
+            
             ChooseContactCommand = new DelegateCommand(DoChooseContact);
+            StartStopCommand = new DelegateCommand(DoStartStop, CanStartStop).ObservesCanExecute((obj)=>CanStartStop());            
         }
 
         private void InitializeText()
@@ -28,6 +33,7 @@ namespace babynophone.App.ViewModels
             this.YouAreUsingText = string.Empty;
         }
 
+        private ICall m_Call;
         private INavigationService m_NavigationService;
 
         private string m_PleaseChooseLabel;
@@ -134,6 +140,22 @@ namespace babynophone.App.ViewModels
             }
         }
 
+        public ICommand StartStopCommand
+        {
+            get;
+            private set;
+        }
+
+        private bool CanStartStop()
+        {
+            return m_Call.CanCall();
+        }
+
+        public void DoStartStop()
+        {
+            m_Call.Call();
+        }
+
 
         public ICommand ChooseContactCommand
         {
@@ -144,6 +166,20 @@ namespace babynophone.App.ViewModels
         {
             m_NavigationService.NavigateAsync(nameof(ChooseSkypeUserPage));
         }
+
+        private string m_StatusText;
+        public string StatusText
+        {
+            get
+            {
+                return m_StatusText;
+            }
+            set
+            {
+                SetProperty(ref m_StatusText, value);
+            }
+        }
+
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {

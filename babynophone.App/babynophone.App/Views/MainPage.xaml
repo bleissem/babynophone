@@ -13,6 +13,7 @@
         <Button Text="{Binding ChooseNoiseLevelButton}" x:Name="ChooseNoiseLevelButton" />
         <Label Text="{Binding ChooseNoiseLevelLabel}" x:Name="ChooseNoiseLevelLabel" />
         <Label Text="{Binding CurrentNoiseLevel}" x:Name="CurrentNoiseLevel" />
-        <Button Text="{Binding StartStopButton}" x:Name="StartStopButton" />
+        <Button Text="{Binding StartStopButton}" Command="{Binding StartStopCommand}" x:Name="StartStopButton" />
+        <Label Text="{Binding StatusText}" x:Name="StatusText" />
     </StackLayout>
 </ContentPage>

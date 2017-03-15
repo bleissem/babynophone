@@ -132,6 +132,9 @@
   <data name="PleaseChooseLabel" xml:space="preserve">
     <value>Bitte wählen Sie:</value>
   </data>
+  <data name="SkypeIsNotInstalledText1" xml:space="preserve">
+    <value>Skype ist nicht installiert</value>
+  </data>
   <data name="StartStopButtonStart" xml:space="preserve">
     <value>Start</value>
   </data>
