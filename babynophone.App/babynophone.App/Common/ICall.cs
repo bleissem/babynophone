@@ -8,7 +8,7 @@ namespace babynophone.App.Common
 {
     public interface ICall : IDisposable
     {
-        bool CanCall();
+        bool CanCall { get; }
         void Call();
     }
 }

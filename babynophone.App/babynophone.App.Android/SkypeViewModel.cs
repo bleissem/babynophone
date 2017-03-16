@@ -45,16 +45,17 @@ namespace babynophone.App.Droid
             }
         }
 
-        public bool CanCall()
+        public bool CanCall
         {
-            return true;
+            get
+            {
+                return true;
+            }
         }
 
         public void Call()
         {
-            if (!CanCall()) return;
-
-
+            if (!CanCall) return;
         }
 
         private void Dispose(bool disposing)

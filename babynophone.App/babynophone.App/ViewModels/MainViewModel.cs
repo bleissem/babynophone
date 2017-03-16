@@ -25,19 +25,22 @@ namespace babynophone.App.ViewModels
         private ISettings m_Settings;
 
 
-        public bool CanCall()
+        public bool CanCall
         {
-            var settingsCallType = m_Settings.MasterSetting.CallType;
-            switch (settingsCallType)
+            get
             {
-                case Settings.CallTypeEnum.SkypeUser:
-                    {
-                        return m_SkypeViewModel.CanCall();
-                    }
-                default:
-                    {
-                        throw new Exception($"unknown call type: {settingsCallType.ToString()}");
-                    }
+                var settingsCallType = m_Settings.MasterSetting.CallType;
+                switch (settingsCallType)
+                {
+                    case Settings.CallTypeEnum.SkypeUser:
+                        {
+                            return m_SkypeViewModel.CanCall;
+                        }
+                    default:
+                        {
+                            throw new Exception($"unknown call type: {settingsCallType.ToString()}");
+                        }
+                }
             }
         }
 

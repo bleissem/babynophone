@@ -22,7 +22,7 @@ namespace babynophone.App.ViewModels
             InitializeText();
             
             ChooseContactCommand = new DelegateCommand(DoChooseContact);
-            StartStopCommand = new DelegateCommand(DoStartStop, CanStartStop).ObservesCanExecute((obj)=>CanStartStop());            
+            StartStopCommand = new DelegateCommand(m_Call.Call, ()=>m_Call.CanCall).ObservesProperty(()=>m_Call.CanCall);
         }
 
         private void InitializeText()
@@ -145,17 +145,6 @@ namespace babynophone.App.ViewModels
             get;
             private set;
         }
-
-        private bool CanStartStop()
-        {
-            return m_Call.CanCall();
-        }
-
-        public void DoStartStop()
-        {
-            m_Call.Call();
-        }
-
 
         public ICommand ChooseContactCommand
         {
