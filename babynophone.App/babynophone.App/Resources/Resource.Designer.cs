@@ -134,6 +134,15 @@ namespace babynophone.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to enable video.
+        /// </summary>
+        internal static string UseVideoLabel {
+            get {
+                return ResourceManager.GetString("UseVideoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to you are using.
         /// </summary>
         internal static string YouAreUsingLabel {

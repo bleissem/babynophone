@@ -28,7 +28,13 @@ namespace babynophone.App.ViewModels
             this.ChooseSkypeUserLabel = Resources.Resource.ChooseSkypeUserLabel;
             this.m_ChooseSkypeUserOKButton = Resources.Resource.ChooseSkypeUserOKButton;
             this.SkypeUser = m_Settings.SkypeUser.SkypeUserName;
-            this.SkypeIsInstalledText = m_SkypeViewModel.IsSkypeInstalled ? Resources.Resource.SkypeIsNotInstalledText1 : string.Empty;
+            this.UseVideoLabel = Resources.Resource.UseVideoLabel;
+            this.SetSkypeInstalledText();
+        }
+
+        private void SetSkypeInstalledText()
+        {
+            this.SkypeIsInstalledText = m_SkypeViewModel.IsSkypeInstalled ? string.Empty : Resources.Resource.SkypeIsNotInstalledText1;
         }
 
         private ISettings m_Settings;
@@ -58,6 +64,26 @@ namespace babynophone.App.ViewModels
             {
                 m_Settings.SkypeUser.SkypeUserName = value;
                 base.OnPropertyChanged(()=>SkypeUser);
+            }
+        }
+
+        public string UseVideoLabel
+        {
+            get;
+            private set;
+        }
+
+        public bool UseVideo
+        {
+            get
+            {
+                return m_Settings.SkypeUser.UseVideo;
+            }
+            set
+
+            {
+                m_Settings.SkypeUser.UseVideo = value;
+                base.OnPropertyChanged(()=>UseVideo);
             }
         }
 
@@ -110,7 +136,7 @@ namespace babynophone.App.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            
+            this.SetSkypeInstalledText();
         }
     }
 }

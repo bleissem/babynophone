@@ -29,38 +29,38 @@ namespace babynophone.App.Common
             }
         }
 
-        private bool m_IsSkypeVideoEnabled;
-        public bool IsSkypeVideoEnabled
+        private bool m_UseVideo;
+        public bool UseVideo
         {
             get
             {
                 Load();
-                return m_IsSkypeVideoEnabled;
+                return m_UseVideo;
             }
             set
             {
-                if (m_IsSkypeVideoEnabled == value) return;
-                m_IsSkypeVideoEnabled = value;
+                if (m_UseVideo == value) return;
+                m_UseVideo = value;
                 Save();
             }
         }
 
         protected override void InitializeTable(SkypeUserSettingTable table)
         {
-            table.IsSkypeVideoEnabled = false;
+            table.UseVideo = false;
             table.SkypeUserName = string.Empty;
         }
 
         protected override void Load(SkypeUserSettingTable table)
         {
-            this.SkypeUserName = table.SkypeUserName;
+            this.m_SkypeUserName = table.SkypeUserName;
 
         }
 
         protected override void Save(SkypeUserSettingTable table)
         {
-            table.SkypeUserName = this.SkypeUserName;
-            table.IsSkypeVideoEnabled = this.IsSkypeVideoEnabled;
+            table.SkypeUserName = this.m_SkypeUserName;
+            table.UseVideo = this.m_UseVideo;
         }
     }
 }

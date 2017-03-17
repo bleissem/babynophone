@@ -9,5 +9,6 @@ namespace babynophone.App.Common
     public interface ISettingsSkypeUser
     {
         string SkypeUserName { get; set; }
+        bool UseVideo { get; set; }
     }
 }

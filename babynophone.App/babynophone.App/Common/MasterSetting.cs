@@ -20,12 +20,12 @@ namespace babynophone.App.Common
 
         protected override void Load(MasterTable table)
         {
-            this.CallType = table.CallType;
+            this.m_CallType = table.CallType;
         }
 
         protected override void Save(MasterTable table)
         {
-            table.CallType = this.CallType;
+            table.CallType = this.m_CallType;
         }
 
         private Settings.CallTypeEnum m_CallType;

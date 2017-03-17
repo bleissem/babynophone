@@ -4,8 +4,10 @@
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              x:Class="babynophone.App.Views.ChooseSkypeUserPage">
     <StackLayout>
-        <Label Text="{Binding ChooseSkypeUserLabel}" />
-        <Entry Text="{Binding SkypeUser}" />
+        <Label Text="{Binding ChooseSkypeUserLabel, Mode=OneWay}" />
+        <Entry Text="{Binding SkypeUser, Mode=TwoWay}" />
+        <Label Text="{Binding UseVideoLabel, Mode=OneWay}" />
+        <Switch IsToggled="{Binding UseVideo, Mode=TwoWay}" />
         <Button Text="{Binding ChooseSkypeUserOKButton}" Command="{Binding ChooseSkypeUserOKButtonCommand}" />
         <Label Text="{Binding SkypeIsInstalledText}" />
     </StackLayout>

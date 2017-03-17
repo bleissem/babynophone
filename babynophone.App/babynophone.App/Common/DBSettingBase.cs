@@ -47,12 +47,10 @@ namespace babynophone.App.Common
                 {
                     Load();
                 }
-                else
-                {
-                    var table = db.Table<TTable>().First();
-                    Save(table);
-                    db.Update(table);
-                }
+
+                var table = db.Table<TTable>().First();
+                Save(table);
+                db.Update(table);
 
             }
         }

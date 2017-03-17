@@ -141,6 +141,9 @@
   <data name="StartStopButtonStop" xml:space="preserve">
     <value>Stop</value>
   </data>
+  <data name="UseVideoLabel" xml:space="preserve">
+    <value>Video aktivieren</value>
+  </data>
   <data name="YouAreUsingLabel" xml:space="preserve">
     <value>Sie verwenden:</value>
   </data>

@@ -13,7 +13,7 @@ namespace babynophone.App.Common
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
-        public bool IsSkypeVideoEnabled { get; set; }
         public string SkypeUserName { get; set; }
+        public bool UseVideo { get; set; }
     }
 }
